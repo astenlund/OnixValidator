@@ -1,0 +1,7 @@
+*.suo
+OnixValidator/bin/
+OnixValidator/obj/
+build/
+.idea/
+*.DotSettings.user
+packages/
