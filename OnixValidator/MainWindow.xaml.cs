@@ -1,4 +1,6 @@
-﻿namespace OnixValidator
+﻿using System;
+
+namespace OnixValidator
 {
     using System.ComponentModel;
     using System.IO;
@@ -112,7 +114,7 @@
             Result = DefaultResult;
         }
 
-        private void Model_OnStatusChanged(object sender, StatusChangedEventArgs statusChangedEventArgs)
+        private void Model_OnStatusChanged(object sender, EventArgs statusChangedEventArgs)
         {
             OnPropertyChanged("IsWorking");
         }

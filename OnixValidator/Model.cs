@@ -8,7 +8,7 @@ namespace OnixValidator
     {
         private Status _currentStatus;
 
-        public event EventHandler<StatusChangedEventArgs> StatusChanged;
+        public event EventHandler<EventArgs> StatusChanged;
 
         public enum Status
         {
@@ -26,7 +26,7 @@ namespace OnixValidator
             private set
             {
                 _currentStatus = value;
-                OnStatusChanged(value);
+                OnStatusChanged();
             }
         }
 
@@ -56,10 +56,10 @@ namespace OnixValidator
             return filePath;
         }
 
-        private void OnStatusChanged(Status status)
+        private void OnStatusChanged()
         {
             var handler = StatusChanged;
-            if (handler != null) handler(this, new StatusChangedEventArgs(status));
+            if (handler != null) handler(this, EventArgs.Empty);
         }
     }
 }
