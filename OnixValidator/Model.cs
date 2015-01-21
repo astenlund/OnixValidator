@@ -66,10 +66,10 @@ namespace OnixValidator
                     return string.Empty;
                 }
 
-                // Update progress
-                PercentDone = (100d * i) / (Upper - 1d);
-
                 Thread.Sleep(20);
+
+                // Update progress
+                PercentDone = ((i + 1d) / Upper) * 100;
             }
 
             // Set finished state
