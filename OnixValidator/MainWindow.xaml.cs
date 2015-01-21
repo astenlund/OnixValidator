@@ -30,6 +30,7 @@ namespace OnixValidator
         public MainWindow()
         {
             _model.StatusChanged += Model_OnStatusChanged;
+            _model.ProgressChanged += Model_OnProgressChanged;
             InitializeComponent();
         }
 
@@ -72,6 +73,11 @@ namespace OnixValidator
         public bool IsWorking
         {
             get { return _model.CurrentStatus == Model.Status.Working; }
+        }
+
+        public double ProgressValue
+        {
+            get { return _model.PercentDone; }
         }
 
         private void Finish()
@@ -117,6 +123,11 @@ namespace OnixValidator
         private void Model_OnStatusChanged(object sender, EventArgs statusChangedEventArgs)
         {
             OnPropertyChanged("IsWorking");
+        }
+
+        private void Model_OnProgressChanged(object sender, EventArgs eventArgs)
+        {
+            OnPropertyChanged("ProgressValue");
         }
 
         private void MainWindow_OnDragLeave(object sender, DragEventArgs e)

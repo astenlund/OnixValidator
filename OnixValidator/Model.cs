@@ -6,9 +6,12 @@ namespace OnixValidator
 
     public sealed class Model
     {
+        public event EventHandler<EventArgs> StatusChanged;
+        public event EventHandler<EventArgs> ProgressChanged;
+
         private Status _currentStatus;
 
-        public event EventHandler<EventArgs> StatusChanged;
+        private double _percentDone;
 
         public enum Status
         {
@@ -30,14 +33,32 @@ namespace OnixValidator
             }
         }
 
+        public double PercentDone
+        {
+            get
+            {
+                return _percentDone;
+            }
+
+            private set
+            {
+                _percentDone = value;
+                OnProgressChanged();
+            }
+        }
+
         public string ValidateOnix(string filePath, CancellationToken ct, out bool success)
         {
-            CurrentStatus = Status.Working;
-
-            success = false;
+            // Set initial state
+            {
+                success = false;
+                PercentDone = 0d;
+                CurrentStatus = Status.Working;
+            }
 
             // TODO: Replace with real work
-            for (var i = 0; i < 200; i++)
+            const int Upper = 100;
+            for (var i = 0; i < Upper; i++)
             {
                 if (ct.IsCancellationRequested)
                 {
@@ -45,12 +66,18 @@ namespace OnixValidator
                     return string.Empty;
                 }
 
-                Thread.Sleep(10);
+                // Update progress
+                PercentDone = (100d * i) / (Upper - 1d);
+
+                Thread.Sleep(20);
             }
 
-            success = true;
-
-            CurrentStatus = Status.Idle;
+            // Set finished state
+            {
+                success = true;
+                PercentDone = 100d;
+                CurrentStatus = Status.Idle;
+            }
             
             // TODO: Replace with real return value
             return filePath;
@@ -59,6 +86,12 @@ namespace OnixValidator
         private void OnStatusChanged()
         {
             var handler = StatusChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        private void OnProgressChanged()
+        {
+            var handler = ProgressChanged;
             if (handler != null) handler(this, EventArgs.Empty);
         }
     }

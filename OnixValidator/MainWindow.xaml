@@ -34,7 +34,10 @@
                     VerticalAlignment="Top">
             <ProgressBar Height="30"
                          Width="300"
-                         IsIndeterminate="True"
+                         IsIndeterminate="False"
+                         Minimum="0"
+                         Maximum="100"
+                         Value="{Binding ProgressValue, Mode=OneWay}"
                          Visibility="{Binding IsWorking, Converter={StaticResource BooleanToVisibilityConverter}}"
                          Margin ="10" />
             <Button Content="Cancel"
