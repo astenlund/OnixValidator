@@ -13,6 +13,8 @@ namespace OnixValidator
 
     using Annotations;
 
+    using OnixValidator.Models;
+
     public sealed partial class MainWindow : INotifyPropertyChanged
     {
         private const string DefaultHeading = "DROP ONIX FILE HERE";

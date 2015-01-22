@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace OnixValidator
+﻿namespace OnixValidator.Models
 {
+    using System;
     using System.Threading;
 
     public sealed class Model
