@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace OnixValidator
+﻿namespace OnixValidator.Converters
 {
+    using System;
     using System.Globalization;
     using System.Windows;
     using System.Windows.Data;

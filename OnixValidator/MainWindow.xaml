@@ -1,7 +1,7 @@
 ﻿<Window x:Class="OnixValidator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:onixValidator="clr-namespace:OnixValidator"
+        xmlns:converters="clr-namespace:OnixValidator.Converters"
         Title="MainWindow"
         Height="350"
         Width="525"
@@ -13,7 +13,7 @@
         MouseLeave="MainWindow_OnMouseLeave"
         Drop="MainWindow_OnDrop">
     <Window.Resources>
-        <onixValidator:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
