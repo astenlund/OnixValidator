@@ -1,9 +1,9 @@
-﻿namespace OnixValidator
+﻿namespace OnixValidator.Extensions
 {
     using System;
     using System.Windows;
 
-    public static class Extensions
+    public static class IDataObjectExtensions
     {
         public static string[] GetPaths(this IDataObject data)
         {
