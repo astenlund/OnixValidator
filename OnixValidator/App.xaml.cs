@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace OnixValidator
+﻿namespace OnixValidator
 {
     /// <summary>
     /// Interaction logic for App.xaml
