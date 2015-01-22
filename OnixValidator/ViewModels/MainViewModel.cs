@@ -91,7 +91,7 @@ namespace OnixValidator.ViewModels
                     var paths = data.GetPaths();
                     if (paths.Length > 1)
                     {
-                        Result = "Only a single file can be dropped here.";
+                        Result = "Only a single file can be dropped here";
                         return;
                     }
 
@@ -99,13 +99,13 @@ namespace OnixValidator.ViewModels
 
                     if (Directory.Exists(path))
                     {
-                        Result = "Directories are not supported.";
+                        Result = "Directories are not supported";
                         return;
                     }
 
                     if (Path.GetExtension(path) != ".xml")
                     {
-                        Result = "Only XML files are supported.";
+                        Result = "Only XML files are supported";
                         return;
                     }
 
