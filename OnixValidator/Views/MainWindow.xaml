@@ -45,7 +45,7 @@
                VerticalAlignment="Bottom"
                IsHitTestVisible="False"
                Foreground="DarkGray"
-               FontFamily="SeqoeUI"
+               FontFamily="Segoe UI"
                FontSize="32" />
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
@@ -72,6 +72,6 @@
                IsHitTestVisible="False"
                Foreground="LightGray"
                Visibility="{Binding IsWorking, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=inverted}"
-               FontFamily="Consolas" />
+               FontFamily="Segoe UI" />
     </Grid>
 </Window>
