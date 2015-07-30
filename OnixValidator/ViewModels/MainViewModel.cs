@@ -12,9 +12,9 @@ namespace OnixValidator.ViewModels
 
     using GalaSoft.MvvmLight.Command;
 
-    using OnixValidator.Annotations;
-    using OnixValidator.Extensions;
-    using OnixValidator.Models;
+    using Annotations;
+    using Extensions;
+    using Models;
 
     public class MainViewModel : INotifyPropertyChanged
     {
