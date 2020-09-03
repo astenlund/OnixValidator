@@ -14,9 +14,8 @@
 
 namespace OnixValidator.ViewModels
 {
+    using CommonServiceLocator;
     using GalaSoft.MvvmLight.Ioc;
-
-    using Microsoft.Practices.ServiceLocation;
 
     /// <summary>
     /// This class contains static references to all the view models in the
